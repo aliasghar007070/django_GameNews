@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}ورود{% endblock %}
+{% block header-refrences %}<link rel="stylesheet" href="/static/css/register.css">{% endblock %}
+
+{% block body %}
+<body dir="rtl">
+    <form action="{% url 'login-page' %}" method="post">
+      <div class="container">
+        <h1>ورود به حساب کاربری</h1>
+        <hr>
+          {% csrf_token %}
+          {{ login_form.email.label_tag }}
+          {{ login_form.email }}
+          {{ login_form.password.label_tag }}
+          {{ login_form.password }}
+          {{ login_form.errors }}
+          <h1 style="color: red">{{ login_form.confirm_password.errors }}</h1>
+        <hr>
+        <button style="font-size: 20px;" type="submit" class="registerbtn">ورود</button>
+      </div>
+    </form>
+</body>
+{% endblock %}

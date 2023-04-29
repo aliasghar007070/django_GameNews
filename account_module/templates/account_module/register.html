@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}ثبت نام{% endblock %}
+{% block header-refrences %}<link rel="stylesheet" href="/static/css/register.css">{% endblock %}
+
+{% block body %}
+<body dir="rtl">
+    <form action="{% url 'register-page' %}" method="post">
+      <div class="container">
+        <h1>ثبت نام</h1>
+        <hr>
+          {% csrf_token %}
+          {{ register_form.email.label_tag }}
+          {{ register_form.email }}
+          {{ register_form.password.label_tag }}
+          {{ register_form.password }}
+          {{ register_form.confirm_password.label_tag }}
+          {{ register_form.confirm_password }}
+          <h1 style="color: red">{{ register_form.confirm_password.errors }}</h1>
+        <hr>
+        <button style="font-size: 20px;" type="submit" class="registerbtn">ثبت نام</button>
+      </div>
+    </form>
+</body>
+{% endblock %}

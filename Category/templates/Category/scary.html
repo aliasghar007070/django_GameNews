@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block body %}
+    {% for content in sport_content %}
+        <div style="background-color: gray;margin-left: auto;margin-right: auto;margin-top: 30px;margin-bottom: 30px;padding-left: 10px;padding-right: 10px;padding-top: 10px;border-radius: 5px;color: white;width: 80%">
+        <article class="article-with-img post-remove">
+            <div class="article-header">
+                <a href="{{ content.get_absolute_url }}" class="article-img"><img  src="http://127.0.0.1:8000/{{ content.picture }}" alt="{{ content.picture }}"></a>
+                <div class="article-header-info">
+                    <h2><a href="{{ content.get_absolute_url }}">{{ content.title }}</a></h2>
+                </div>
+            </div>
+            <div>
+                <p>{{ content.short_description }}</p>
+            </div>
+            <div>
+                <p style="color: blue"> امتیاز :{{ content.rating }}</p>
+            </div>
+        </article>
+    </div>
+    {% endfor %}
+
+{% endblock %}
